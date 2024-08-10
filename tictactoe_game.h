@@ -10,7 +10,6 @@ typedef struct tictactoe_game {
 } ttt_game_t;
 
 int tictactoe_game_init(ttt_game_t *game);
-char tictactoe_game_check_winner(ttt_game_t *game);
 int tictactoe_game_make_turn(ttt_game_t *game, size_t x, size_t y);
 int tictactoe_game_snprint(ttt_game_t *game, char *buf, size_t len);
 

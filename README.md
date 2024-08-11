@@ -25,7 +25,7 @@ After loading the module, player X can write grid coordinates
 # echo 12 > /dev/tictactoe
 ```
 
-After player X has made his move, player O can do the same:
+After player X has made their move, player O can do the same:
 
 ```console
 # echo 22 > /dev/tictactoe

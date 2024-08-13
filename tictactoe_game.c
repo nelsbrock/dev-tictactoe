@@ -11,8 +11,8 @@ int tictactoe_game_init(ttt_game_t *game)
 {
 	game->next_turn = 'X';
 	game->winner = 0;
-	for (int x = 0; x < 3; x++) {
-		for (int y = 0; y < 3; y++) {
+	for (size_t x = 0; x < 3; x++) {
+		for (size_t y = 0; y < 3; y++) {
 			game->board[x][y] = ' ';
 		}
 	}
@@ -67,13 +67,13 @@ static char tictactoe_game_check_winner(ttt_game_t *game)
 	char winner;
 
 	// check columns
-	for (int x = 0; x < 3; x++) {
+	for (size_t x = 0; x < 3; x++) {
 		if ((winner = tictactoe_game_check_streak(game, x, 0, 0, 1)))
 			return winner;
 	}
 
 	// check rows
-	for (int y = 0; y < 3; y++) {
+	for (size_t y = 0; y < 3; y++) {
 		if ((winner = tictactoe_game_check_streak(game, 0, y, 1, 0)))
 			return winner;
 	}
@@ -88,8 +88,8 @@ static char tictactoe_game_check_winner(ttt_game_t *game)
 
 	// check for tie
 	winner = '\xFF';
-	for (int x = 0; x < 3; x++) {
-		for (int y = 0; y < 3; y++) {
+	for (size_t x = 0; x < 3; x++) {
+		for (size_t y = 0; y < 3; y++) {
 			if (game->board[x][y] == ' ') {
 				winner = 0;
 				break;
@@ -133,7 +133,7 @@ int tictactoe_game_make_turn(ttt_game_t *game, size_t x, size_t y)
  */
 int tictactoe_game_snprint(ttt_game_t *game, char *buf, size_t count)
 {
-	int pos;
+	size_t pos;
 	int ret;
 
 	pos = 0;

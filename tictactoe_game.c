@@ -21,13 +21,14 @@ int tictactoe_game_init(ttt_game_t *game)
 }
 
 /*
- * Steps over the board, starting from position (start_x, start_y) and ending
+ * Steps over the board, starting at position (start_x, start_y) and ending
  * at the board's boundaries, checking if all cells are occupied by the same
  * player.
  *
- * start_x and start_y must lie within the board's boundaries.
+ * start_x and start_y must be within the board's boundaries.
  *
- * Returns the respective player, or '\x00' if a cell isn't occupied.
+ * Returns the respective player, or '\x00' if no single player occupies all
+ * cells within the specified streak.
  */
 static char tictactoe_game_check_streak(ttt_game_t *game, size_t start_x,
 					size_t start_y, ssize_t step_x,

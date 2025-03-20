@@ -94,7 +94,7 @@ static ssize_t tictactoe_write(struct file *file, const char __user *buf,
 {
 	char *command_buf;
 	size_t count_without_lf;
-	size_t human_x, human_y;
+	size_t x, y;
 
 	if (count == 0)
 		return 0;
@@ -145,8 +145,8 @@ static ssize_t tictactoe_write(struct file *file, const char __user *buf,
 		}
 	}
 
-	human_x = (size_t)(command_buf[0] - '0');
-	human_y = (size_t)(command_buf[1] - '0');
+	x = (size_t)(command_buf[0] - '1');
+	y = (size_t)(command_buf[1] - '1');
 
 	kfree(command_buf);
 
@@ -163,8 +163,7 @@ static ssize_t tictactoe_write(struct file *file, const char __user *buf,
 #endif
 	}
 
-	if (tictactoe_game_make_turn(tictactoe_current_game, human_x - 1,
-				     human_y - 1)) {
+	if (tictactoe_game_make_turn(tictactoe_current_game, x, y)) {
 		mutex_unlock(&tictactoe_mutex_current_game);
 		return -EINVAL;
 	}

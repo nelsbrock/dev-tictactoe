@@ -9,7 +9,7 @@ typedef struct tictactoe_game {
 	char board[3][3];
 } ttt_game_t;
 
-int tictactoe_game_init(ttt_game_t *game);
+void tictactoe_game_init(ttt_game_t *game);
 int tictactoe_game_make_turn(ttt_game_t *game, size_t x, size_t y);
 int tictactoe_game_snprint(ttt_game_t *game, char *buf, size_t len);
 

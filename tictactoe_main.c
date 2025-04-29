@@ -225,12 +225,7 @@ static int __init tictactoe_init(void)
 		tictactoe_error("failed to allocate game memory\n");
 		return -EFAULT;
 	}
-	ret = tictactoe_game_init(tictactoe_current_game);
-	if (ret) {
-		mutex_unlock(&tictactoe_mutex_current_game);
-		tictactoe_error("failed to initialize game\n");
-		return -EFAULT;
-	}
+	tictactoe_game_init(tictactoe_current_game);
 	mutex_unlock(&tictactoe_mutex_current_game);
 
 	ret = misc_register(&tictactoe_dev);

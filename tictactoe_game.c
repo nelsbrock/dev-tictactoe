@@ -7,7 +7,7 @@
 /*
  * Initializes a new game instance.
  */
-int tictactoe_game_init(ttt_game_t *game)
+void tictactoe_game_init(ttt_game_t *game)
 {
 	game->next_turn = 'X';
 	game->winner = 0;
@@ -16,8 +16,6 @@ int tictactoe_game_init(ttt_game_t *game)
 			game->board[x][y] = ' ';
 		}
 	}
-
-	return 0;
 }
 
 /*

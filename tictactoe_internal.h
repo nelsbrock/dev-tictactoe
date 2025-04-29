@@ -10,7 +10,7 @@
 #define tictactoe_error(format, ...) \
 	pr_err("%s: " format, __func__, ##__VA_ARGS__)
 
-typedef struct annotated_string {
+typedef struct {
 	struct mutex lock;
 	size_t len;
 	char *buf;

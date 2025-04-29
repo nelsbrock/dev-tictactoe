@@ -3,7 +3,7 @@
 
 #include <linux/types.h>
 
-typedef struct tictactoe_game {
+typedef struct {
 	char next_turn;
 	char winner;
 	char board[3][3];
